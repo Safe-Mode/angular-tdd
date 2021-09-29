@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Home 1",
+    "image": "assets/images/home-1.jpg",
+    "location": "New York",
+    "price": 100
+  },
+  {
+    "title": "Home 2",
+    "image": "assets/images/home-1.jpg",
+    "location": "Boston",
+    "price": 200
+  },
+  {
+    "title": "Home 3",
+    "image": "assets/images/home-1.jpg",
+    "location": "LA",
+    "price": 300
+  }
+]
