@@ -32,7 +32,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should show filters', () => {
-    expect(fixture.nativeElement.querySelector('[data-test="homes-type"]')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('[data-test="home-type"]')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('[data-test="dates"]')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('[data-test="guests"]')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('[data-test="price"]')).toBeTruthy();

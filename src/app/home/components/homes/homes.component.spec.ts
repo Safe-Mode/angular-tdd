@@ -50,11 +50,11 @@ describe('HomeComponent', () => {
   });
 
   it('should show homes', () => {
-    expect(fixture.nativeElement.querySelectorAll('[data-test="homes"]').length).toBe(3);
+    expect(fixture.nativeElement.querySelectorAll('[data-test="home"]').length).toBe(3);
   });
 
   it('should show homes info', () => {
-    const home = fixture.nativeElement.querySelector('[data-test="homes"]');
+    const home = fixture.nativeElement.querySelector('[data-test="home"]');
 
     expect(home.querySelector('[data-test="title"]').innerText).toEqual('Home 1');
     expect(home.querySelector('[data-test="location"]').innerText).toEqual('New York');
