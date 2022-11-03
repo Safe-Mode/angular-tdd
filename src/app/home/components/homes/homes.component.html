@@ -3,21 +3,27 @@
     <li data-test="home" *ngFor="let home of homes$! | async">
       <div class="group relative">
         <div data-test="image"
-             class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+             class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden lg:h-80 lg:aspect-none">
           <img [src]="home.image" [alt]="home.title"
                class="w-full h-full object-center object-cover lg:w-full lg:h-full">
         </div>
-        <div class="mt-4 flex justify-between">
+        <div class="mt-4 flex justify-between items-center">
           <div>
             <h3 data-test="title" class="text-sm text-gray-700">
               <a href="#">
-                <span aria-hidden="true" class="absolute inset-0"></span>
+                <span aria-hidden="true" class="inset-0"></span>
                 {{ home.title }}
               </a>
             </h3>
             <p data-test="location" class="mt-1 text-sm text-gray-500">{{ home.location }}</p>
+            <p data-test="price"
+               class="mt-1 text-sm font-medium text-gray-900">{{ home.price | currency: '': 'symbol-narrow': '1.0'}}</p>
           </div>
-          <p data-test="price" class="text-sm font-medium text-gray-900">{{ home.price | currency: '': 'symbol-narrow': '1.0' }}</p>
+
+          <button data-test="book-btn"
+                  type="button"
+                  class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  (click)="openDialog()">Book</button>
         </div>
       </div>
     </li>
