@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from './header/header.module';
 import { HomesModule } from './home/homes.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     HeaderModule,
-    HomesModule
+    HomesModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

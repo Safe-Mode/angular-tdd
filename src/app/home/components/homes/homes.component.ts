@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from '../../../shared/services/data.service';
 import { DialogService } from '../../../shared/services/dialog.service';
+import { BookComponent } from '../../../homes/components/book/book.component';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,6 @@ export class HomesComponent implements OnInit {
 
 
   openDialog(): void {
-    this.dialogService.open();
+    this.dialogService.open(BookComponent);
   }
 }
