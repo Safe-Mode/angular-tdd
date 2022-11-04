@@ -36,17 +36,17 @@ describe('HomeComponent', () => {
     dialogService = TestBed.get(DialogService);
 
     dataService.getHomes.and.returnValue(of([{
-      title: 'Home 1',
+      title: 'HomeInterface 1',
       image: 'src/assets/images/homes-1.jpg',
       location: 'New York',
       price: 100
     }, {
-      title: 'Home 2',
+      title: 'HomeInterface 2',
       image: 'src/assets/images/homes-1.jpg',
       location: 'Boston',
       price: 200
     }, {
-      title: 'Home 3',
+      title: 'HomeInterface 3',
       image: 'src/assets/images/homes-1.jpg',
       location: 'LA',
       price: 300
@@ -62,7 +62,7 @@ describe('HomeComponent', () => {
   it('should show homes info', () => {
     const home = fixture.nativeElement.querySelector('[data-test="home"]');
 
-    expect(home.querySelector('[data-test="title"]').innerText).toEqual('Home 1');
+    expect(home.querySelector('[data-test="title"]').innerText).toEqual('HomeInterface 1');
     expect(home.querySelector('[data-test="location"]').innerText).toEqual('New York');
     expect(home.querySelector('[data-test="price"]').innerText).toEqual('$100');
     expect(home.querySelector('[data-test="image"]')).toBeTruthy();

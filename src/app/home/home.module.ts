@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DataService } from '../shared/services/data.service';
 import { HomesComponent } from './components/homes/homes.component';
-import { BookComponent } from '../homes/components/book/book.component';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
   declarations: [
@@ -20,5 +20,5 @@ import { BookComponent } from '../homes/components/book/book.component';
     DataService
   ]
 })
-export class HomesModule {
+export class HomeModule {
 }

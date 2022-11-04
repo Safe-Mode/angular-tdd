@@ -22,17 +22,17 @@ describe('DataService', () => {
     httpClient = TestBed.inject(HttpClient);
 
     const mockedHomes = [{
-      title: 'Home 1',
+      title: 'HomeInterface 1',
       image: 'src/assets/images/homes-1.jpg',
       location: 'New York',
       price: 100
     }, {
-      title: 'Home 2',
+      title: 'HomeInterface 2',
       image: 'src/assets/images/homes-1.jpg',
       location: 'Boston',
       price: 200
     }, {
-      title: 'Home 3',
+      title: 'HomeInterface 3',
       image: 'src/assets/images/homes-1.jpg',
       location: 'LA',
       price: 300
