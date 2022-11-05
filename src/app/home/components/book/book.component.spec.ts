@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BookComponent } from './book.component';
+import { FormsModule } from '@angular/forms';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -13,6 +14,9 @@ describe('BookComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ BookComponent ],
+      imports: [
+        FormsModule
+      ],
       providers: [{
         provide: MAT_DIALOG_DATA,
         useValue: {}
@@ -35,11 +39,11 @@ describe('BookComponent', () => {
   });
 
   it('should show the title', () => {
-    expect(element('[data-test="title"]').textContent).toContain('Home 1');
+    expect(element('[data-test="title"]').textContent).toContain('Book Home 1');
   });
 
   it('should show the price', () => {
-    expect(element('[data-test="price"]').textContent).toContain('100');
+    expect(element('[data-test="price"]').textContent).toContain('$100 per night');
   });
 
   it('should show the check in date field', () => {
@@ -48,5 +52,18 @@ describe('BookComponent', () => {
 
   it('should show the check out date field', () => {
     expect(element('[data-test="check-out"]')).toBeTruthy();
+  });
+
+  it('should show total price', () => {
+    const checkInInputEl = element('[data-test="check-in"]');
+    checkInInputEl.value = '2022-10-20';
+    checkInInputEl.dispatchEvent(new Event('input'));
+
+    const checkOutInputEl = element('[data-test="check-out"]');
+    checkOutInputEl.value = '2022-10-30';
+    checkOutInputEl.dispatchEvent(new Event('input'));
+
+    fixture.detectChanges();
+    expect(element('[data-test="total"]').textContent).toContain('Total: $1000');
   });
 });

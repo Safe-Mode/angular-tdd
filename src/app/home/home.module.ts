@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DataService } from '../shared/services/data.service';
 import { HomesComponent } from './components/homes/homes.component';
 import { BookComponent } from './components/book/book.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { BookComponent } from './components/book/book.component';
     BookComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     HomesComponent
