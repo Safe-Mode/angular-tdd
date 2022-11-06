@@ -13,4 +13,8 @@ export class DataService {
   getHomes(): Observable<any[]> {
     return this.http.get<any[]>('assets/homes.json');
   }
+
+  bookHome(): Observable<any> {
+    return this.http.post('https://run.mocky.io/v3/f48507eb-e2bf-4eb0-a3bc-683fbddf1ed7', {});
+  }
 }

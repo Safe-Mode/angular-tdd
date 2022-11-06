@@ -9,3 +9,6 @@
   <input data-test="check-out" type="text" [(ngModel)]="checkOutDateStr">
 </div>
 <p data-test="total">Total: ${{ getTotal() || 0 }}</p>
+<div>
+  <button data-test="book-btn" type="submit" (click)="bookHome($event)">Book</button>
+</div>
