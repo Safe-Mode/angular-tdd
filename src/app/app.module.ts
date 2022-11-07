@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderModule,
     HomeModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataService } from '../../../shared/services/data.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 const { DateTime } = require('luxon');
+import { DataService } from '../../../shared/services/data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-book',
@@ -14,7 +15,9 @@ export class BookComponent implements OnInit {
   checkOutDateStr = '';
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private dataService: DataService) {
+              private dataService: DataService,
+              private bookDialogRef: MatDialogRef<BookComponent>,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -33,6 +36,9 @@ export class BookComponent implements OnInit {
 
     this.dataService
       .bookHome()
-      .subscribe();
+      .subscribe(() => {
+        this.bookDialogRef.close();
+        this.snackBar.open('Home is booked successfully!')
+      });
   }
 }

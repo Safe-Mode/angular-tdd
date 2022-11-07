@@ -1,17 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BookComponent } from './book.component';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../../../shared/services/data.service';
 import { spyOnClass } from 'jasmine-es6-spies/dist';
 import { of } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
   let dialogData: any;
   let dataService: jasmine.SpyObj<DataService>;
+  let dialogRef: jasmine.SpyObj<MatDialogRef<BookComponent>>;
+  let snackBar: jasmine.SpyObj<MatSnackBar>;
 
   const element = (selector: string) => fixture.nativeElement.querySelector(selector);
 
@@ -27,6 +30,12 @@ describe('BookComponent', () => {
       }, {
         provide: DataService,
         useFactory: () => spyOnClass(DataService)
+      }, {
+        provide: MatDialogRef,
+        useFactory: () => spyOnClass(MatDialogRef)
+      }, {
+        provide: MatSnackBar,
+        useFactory: () => spyOnClass(MatSnackBar)
       }]
     })
     .compileComponents();
@@ -37,6 +46,8 @@ describe('BookComponent', () => {
     component = fixture.componentInstance;
     dialogData = TestBed.get(MAT_DIALOG_DATA);
     dataService = TestBed.get(DataService);
+    dialogRef = TestBed.get(MatDialogRef);
+    snackBar = TestBed.get(MatSnackBar);
 
     const homes = require('../../../../assets/homes.json');
     dialogData.home = homes[0];
@@ -76,7 +87,7 @@ describe('BookComponent', () => {
     expect(element('[data-test="total"]').textContent).toContain('Total: $1000');
   });
 
-  fit('should book home after clicking bookHome btn', () => {
+  it('should book home after clicking bookHome btn', () => {
     dataService.bookHome.and.returnValue(of(null));
 
     const checkInInputEl = element('[data-test="check-in"]');
@@ -91,5 +102,23 @@ describe('BookComponent', () => {
 
     element('[data-test="book-btn"]').click();
     expect(dataService.bookHome).toHaveBeenCalled();
+  });
+
+  it('should close the dialog and show notification after booking home', () => {
+    dataService.bookHome.and.returnValue(of(null));
+
+    const checkInInputEl = element('[data-test="check-in"]');
+    checkInInputEl.value = '2022-10-20';
+    checkInInputEl.dispatchEvent(new Event('input'));
+
+    const checkOutInputEl = element('[data-test="check-out"]');
+    checkOutInputEl.value = '2022-10-30';
+    checkOutInputEl.dispatchEvent(new Event('input'));
+
+    fixture.detectChanges();
+
+    element('[data-test="book-btn"]').click();
+    expect(dialogRef.close).toHaveBeenCalled();
+    expect(snackBar.open).toHaveBeenCalled();
   });
 });
