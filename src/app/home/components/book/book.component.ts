@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-const { DateTime } = require('luxon');
 import { DataService } from '../../../shared/services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'app-book',
@@ -24,11 +24,9 @@ export class BookComponent implements OnInit {
   }
 
   getTotal(): number {
-    return DateTime
-      .fromISO(this.checkOutDateStr)
-      .diff(DateTime.fromISO(this.checkInDateStr), 'days')
-      .toObject()
-      .days * this.data.home.price;
+    console.log(this.checkOutDateStr)
+    return dayjs(this.checkOutDateStr)
+      .diff(dayjs(this.checkInDateStr), 'days') * this.data.home.price;
   }
 
   bookHome(event: Event): void {

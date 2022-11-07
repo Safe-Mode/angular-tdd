@@ -3,10 +3,22 @@
   <span data-test="price">${{ data.home.price }} per night</span>
 </div>
 <div>
-  <input data-test="check-in" type="text" [(ngModel)]="checkInDateStr">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose the check in date</mat-label>
+    <input matInput [matDatepicker]="checkInPicker" [(ngModel)]="checkInDateStr" data-test="check-in">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkInPicker></mat-datepicker>
+  </mat-form-field>
 </div>
 <div>
-  <input data-test="check-out" type="text" [(ngModel)]="checkOutDateStr">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose the check in date</mat-label>
+    <input matInput [matDatepicker]="checkOutPicker" [(ngModel)]="checkOutDateStr" data-test="check-out">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkOutPicker></mat-datepicker>
+  </mat-form-field>
 </div>
 <p data-test="total">Total: ${{ getTotal() || 0 }}</p>
 <div>

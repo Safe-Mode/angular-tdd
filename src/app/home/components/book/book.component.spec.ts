@@ -76,11 +76,11 @@ describe('BookComponent', () => {
 
   it('should show total price', () => {
     const checkInInputEl = element('[data-test="check-in"]');
-    checkInInputEl.value = '2022-10-20';
+    checkInInputEl.value = 'Thu Oct 20 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkInInputEl.dispatchEvent(new Event('input'));
 
     const checkOutInputEl = element('[data-test="check-out"]');
-    checkOutInputEl.value = '2022-10-30';
+    checkOutInputEl.value = 'Sun Oct 30 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkOutInputEl.dispatchEvent(new Event('input'));
 
     fixture.detectChanges();
@@ -91,11 +91,11 @@ describe('BookComponent', () => {
     dataService.bookHome.and.returnValue(of(null));
 
     const checkInInputEl = element('[data-test="check-in"]');
-    checkInInputEl.value = '2022-10-20';
+    checkInInputEl.value = 'Thu Oct 20 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkInInputEl.dispatchEvent(new Event('input'));
 
     const checkOutInputEl = element('[data-test="check-out"]');
-    checkOutInputEl.value = '2022-10-30';
+    checkOutInputEl.value = 'Sun Oct 30 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkOutInputEl.dispatchEvent(new Event('input'));
 
     fixture.detectChanges();
@@ -108,11 +108,11 @@ describe('BookComponent', () => {
     dataService.bookHome.and.returnValue(of(null));
 
     const checkInInputEl = element('[data-test="check-in"]');
-    checkInInputEl.value = '2022-10-20';
+    checkInInputEl.value = 'Thu Oct 20 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkInInputEl.dispatchEvent(new Event('input'));
 
     const checkOutInputEl = element('[data-test="check-out"]');
-    checkOutInputEl.value = '2022-10-30';
+    checkOutInputEl.value = 'Sun Oct 30 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
     checkOutInputEl.dispatchEvent(new Event('input'));
 
     fixture.detectChanges();
