@@ -25,7 +25,7 @@ export class HomesComponent implements OnInit {
 
   openDialog(home: HomeInterface): void {
     this.dialogService.open(BookComponent, {
-      width: '250px',
+      width: '288px',
       data: { home }
     });
   }

@@ -1,8 +1,7 @@
-<h3 data-test="title">Book {{ data.home.title }}</h3>
-<div>
-  <span data-test="price">${{ data.home.price }} per night</span>
-</div>
-<div>
+<h3 data-test="title" mat-dialog-title>Book {{ data.home.title }}</h3>
+<p class="my-5"><span data-test="price" class="text-lg font-bold text-indigo-500">${{ data.home.price }}</span>
+  per night</p>
+<div class="my-5">
   <mat-form-field appearance="fill">
     <mat-label>Choose the check in date</mat-label>
     <input matInput [matDatepicker]="checkInPicker" [(ngModel)]="checkInDateStr" data-test="check-in">
@@ -11,7 +10,7 @@
     <mat-datepicker #checkInPicker></mat-datepicker>
   </mat-form-field>
 </div>
-<div>
+<div class="my-5">
   <mat-form-field appearance="fill">
     <mat-label>Choose the check in date</mat-label>
     <input matInput [matDatepicker]="checkOutPicker" [(ngModel)]="checkOutDateStr" data-test="check-out">
@@ -20,7 +19,10 @@
     <mat-datepicker #checkOutPicker></mat-datepicker>
   </mat-form-field>
 </div>
-<p data-test="total">Total: ${{ getTotal() || 0 }}</p>
+<p data-test="total" class="my-5 font-bold">Total: <span class="text-indigo-500">${{ getTotal() || 0 }}</span></p>
 <div>
-  <button data-test="book-btn" type="submit" (click)="bookHome($event)">Book</button>
+  <button data-test="book-btn"
+          type="submit"
+          class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          (click)="bookHome($event)">Book</button>
 </div>
