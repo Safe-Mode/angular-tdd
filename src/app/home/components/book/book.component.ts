@@ -23,10 +23,9 @@ export class BookComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getTotal(): number {
-    console.log(this.checkOutDateStr)
-    return dayjs(this.checkOutDateStr)
-      .diff(dayjs(this.checkInDateStr), 'days') * this.data.home.price;
+  getTotal(): string {
+    const total = dayjs(this.checkOutDateStr).diff(dayjs(this.checkInDateStr), 'days') * this.data.home.price
+    return (total > 0) ? `$${total}` : '--';
   }
 
   bookHome(event: Event): void {

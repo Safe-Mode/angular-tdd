@@ -1,5 +1,5 @@
 <h3 data-test="title" mat-dialog-title>Book {{ data.home.title }}</h3>
-<p class="my-5"><span data-test="price" class="text-lg font-bold text-indigo-500">${{ data.home.price }}</span>
+<p data-test="price" class="my-5"><span class="text-lg font-bold text-indigo-500">${{ data.home.price }}</span>
   per night</p>
 <div class="my-5">
   <mat-form-field appearance="fill">
@@ -19,7 +19,7 @@
     <mat-datepicker #checkOutPicker></mat-datepicker>
   </mat-form-field>
 </div>
-<p data-test="total" class="my-5 font-bold">Total: <span class="text-indigo-500">${{ getTotal() || 0 }}</span></p>
+<p data-test="total" class="my-5 font-bold">Total: <span class="text-indigo-500">{{ getTotal() }}</span></p>
 <div>
   <button data-test="book-btn"
           type="submit"

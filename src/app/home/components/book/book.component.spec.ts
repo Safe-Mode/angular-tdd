@@ -74,6 +74,19 @@ describe('BookComponent', () => {
     expect(element('[data-test="check-out"]')).toBeTruthy();
   });
 
+  it('should show double dash total when valid dates aren\'t presented', () => {
+    const checkInInputEl = element('[data-test="check-in"]');
+    checkInInputEl.value = '';
+    checkInInputEl.dispatchEvent(new Event('input'));
+
+    const checkOutInputEl = element('[data-test="check-out"]');
+    checkOutInputEl.value = '';
+    checkOutInputEl.dispatchEvent(new Event('input'));
+
+    fixture.detectChanges();
+    expect(element('[data-test="total"]').textContent).toContain('Total: --');
+  });
+
   it('should show total price', () => {
     const checkInInputEl = element('[data-test="check-in"]');
     checkInInputEl.value = 'Thu Oct 20 2022 00:00:00 GMT+0300 (Москва, стандартное время)';
